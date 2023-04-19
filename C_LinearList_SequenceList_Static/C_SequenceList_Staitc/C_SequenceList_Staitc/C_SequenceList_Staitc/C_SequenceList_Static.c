@@ -116,3 +116,20 @@ void DelPos(SeList* sl, int pos) {
 	}
 	sl->CSize--;
 }
+
+
+/* 查找元素：返回索引 */
+int GetElemPos(SeList* sl, DataType data) {
+	assert(sl);
+	for (int i = 0; i < sl->CSize; i++) {
+		if (sl->arr[i] == data) return i+1;
+	}
+	return -1;
+}
+
+/* 查找指定索引：返回元素 */
+DataType GetElemByPos(SeList* sl, int pos) {
+	assert(sl);
+	assert(pos > 0 && pos <= sl->CSize);
+	return sl->arr[pos];
+}

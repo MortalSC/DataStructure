@@ -25,6 +25,12 @@ void test_InsertPos();
 /* 测试指定位次删除 */
 void test_DelPos();
 
+/* 查找元素：返回索引 */
+void test_GetElemPos();
+
+/* 查找指定索引：返回元素 */
+void test_GetElemByPos();
+
 int main() {
 
 	printf("==============================================\n");
@@ -50,6 +56,12 @@ int main() {
 
 	printf("==============================================\n");
 	test_DelPos();
+
+	printf("==============================================\n");
+	test_GetElemPos();
+
+	printf("==============================================\n");
+	test_GetElemByPos();
 
 	return 0;
 }
@@ -151,4 +163,29 @@ void test_DelPos() {
 	printf("删除：第 2 个：");
 	DelPos(&sl,2);
 	TravelSeList(sl);
+}
+
+
+/* 查找元素：返回索引 */
+void test_GetElemPos() {
+	SeList sl;
+	InitSeList(&sl);
+
+	for (int i = 0; i < 10; i++) {
+		PushFront(&sl, i + 1);
+	}
+	TravelSeList(sl);
+	printf("5 的索引值：%d\n", GetElemPos(&sl,5));
+}
+
+/* 查找指定索引：返回元素 */
+void test_GetElemByPos() {
+	SeList sl;
+	InitSeList(&sl);
+
+	for (int i = 0; i < 10; i++) {
+		PushFront(&sl, i + 1);
+	}
+	TravelSeList(sl);
+	printf("索引为 5 的元素：%d\n", GetElemByPos(&sl, 5));
 }
